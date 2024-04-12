@@ -1,16 +1,22 @@
-#!bin/usr/python3
-""
+#!/usr/bin/python3
+"script that starts a Flask web application"
 from flask import Flask
+
 
 app = Flask(__name__)
 
+
 @app.route("/", strict_slashes=False)
 def hello_world():
+    "starts a Flask web application"
     return "Hello HBNB!"
 
 @app.route("/hbnb", strict_slashes=False)
 def hello_hbnb():
+    "starts a Flask web application"
     return "HBNB"
+
+
 
 # main driver function
 if __name__ == '__main__':

@@ -22,6 +22,16 @@ def hello_c(text):
     text = text.replace('_', ' ')
     return "C {}".format(text)
 
+
+@app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def hello_python(text):
+    "starts a Flask web application"
+    text = text.replace('_', ' ')
+    return "Python {}".format(text)
+
+    
+
 # main driver function
 if __name__ == '__main__':
  
