@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 "script that starts a Flask web application"
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -33,7 +33,25 @@ def hello_python(text):
 @app.route("/number/<int:n>", strict_slashes=False)
 def is_num(n):
     "starts a Flask web application"
-    return "{} is a number".format(n)
+    return "{} is number".format(n)
+
+@app.route("/number_template/<int:n>", strict_slashes=False)
+def html_num(n):
+    "starts a Flask web application"
+    return render_template('5-number.html', n=n)
+
+
+@app.route('/number_odd_or_even/<int:n>')
+def odd_or_even(n):
+    "script that starts a Flask web application"
+    if n % 2:
+        output = "odd"
+    else:
+        output = "even"
+    return render_template('6-number_odd_or_even.html', n=n, output=output)
+
+
+
 
 # main driver function
 if __name__ == '__main__':
